@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* ========== TYPOGRAPHY SYSTEM ========== */
+
+        /* Google Fonts - لازم تكون موجودة في الـ head */
+        /* <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet"> */
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 600;
+            color: #b8973a;
+            ;
+            letter-spacing: 0.05em;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-weight: 600;
+            color: #b8973a;
+            ;
+            letter-spacing: 0.05em;
+            line-height: 1.2;
+        }
+
+        h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            font-weight: 600;
+            color: #b8973a;
+            ;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            line-height: 1.4;
+        }
+
+        h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            font-weight: 200;
+            color: #b8973a;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            line-height: 1.6;
+        }
+
+        p {
+            font-family: 'DM Sans', sans-serif;
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            font-weight: 300;
+            color: white;
+            line-height: 1.8;
+            max-width: 600px;
+        }
+
+        /* للـ spans أو highlights بالذهبي */
+        span.highlight {
+            color: var(--gold);
+        }
+
+        /* لو في labels أو small text */
+        small,
+        .label {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        :root {
+            --gold: #b8973a;
+            --gold-light: #d4b05a;
+            --dark: #0d0d0d;
+            --dark-2: #141414;
+            --dark-3: #1c1c1c;
+            --text: #e8e4dc;
+            --text-muted: #7a7570;
+            --border: rgba(184, 151, 58, 0.2);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--dark);
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            overflow-x: hidden;
+        }
+
+        /* NAV */
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="#" class="nav-logo">
+            <img src="cropped logo.png" alt="Ahmed Shehata" style="height: 40px; width: auto;">
+            Ahmed Shehata
+        </a>
+
+        <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+        </ul>
+    </nav>
+
+    <style>
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 0.75rem 15rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(13, 13, 13, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 0.5px solid var(--border);
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--gold);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(13, 13, 13, 0.95);
+                padding: 1rem 2rem;
+                gap: 1rem;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+        }
+
+
+        function toggleMenu() {
+            document.getElementById('nav-links').classList.toggle('open');
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--gold);
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 700 !important;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+    </style>
+
+
+
+    <header class="hero">
+        <h1>Privacy Policy</h1>
+        <p>
+            This Privacy Policy explains how we collect, use, and protect your information when you visit <span>Ahmed
+                Shehata.com</span>
+        </p>
+        <hr>
+
+    </header>
+
+
+    <style>
+        .hero {
+            font-family: 'Cormorant Garamond', serif;
+            padding-top: 120px;
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            /* ← ده اللي بيحط الـ p في النص */
+        }
+    </style>
+
+    <Div class="privacy">
+
+        <h3> 1. Information We Collect </h3>
+        <h4> A) Information Collected Automatically </h4>
+        <P>
+            When you browse the website, certain data is collected automatically, such as:
+        </P>
+
+        <ul>
+            <li>Device type and browser</li>
+            <li>Approximate location (country/city)</li>
+            <li>Pages you visit and time spent</li>
+            <li>Traffic source (search, social media, direct)</li>
+        </ul>
+        <P> This happens through analytics tools like<span> Google Analytics.</span>
+        </P>
+
+        <h4>
+            B) Information You Provide Voluntarily
+        </h4>
+        <p>
+            If you fill out a contact form or send a message, we may collect:
+        </p>
+        <P> You may :</P>
+        <ul>
+            <li>Your Name </li>
+            <li> Email Addres</li>
+            <li>Any Information you choose to include in your message</li>
+
+        </ul>
+        <hr>
+        <h3>
+            2. How We Use Your Information
+        </h3>
+        <p>
+            We Use The Collected Data To :
+        </p>
+
+        <ul>
+            <li>Improve website content and user experience</li>
+            <li>Respond to your messages and inquiries</li>
+            <li>Analyze traffic and performance</li>
+            <li>Maintain website security</li>
+        </ul>
+        <p>We <span> don't</span> sell or share your personal information with third parties for marketing.</p>
+
+        <hr>
+
+        <h3>
+            3. Cookies
+        </h3>
+        <h4>
+            This Website Uses cookies to :
+        </h4>
+        <ul>
+            <li>Improve functionality</li>
+            <li>Track basic analytics (anonymous)</li>
+            <li>Remember your preferences</li>
+        </ul>
+
+        <hr>
+
+        <h3>
+            4. Third-Party Services
+        </h3>
+        <P>
+            We may use trusted third-party services such as:
+        </P>
+
+        <ul>
+            <li>Google Analytics</li>
+            <li>Google AdSense (for advertising)</li>
+            <li>Email or contact form tools</li>
+        </ul>
+
+        <P>
+            These services may collect data according to their own privacy policies.
+        </P>
+        <hr>
+        <h3>
+            5. Data Protection
+        </h3>
+        <P>We take reasonable technical and organizational measures to keep your data secure.</P>
+        <p>
+            However, no method of internet transmission is 100% guaranteed.
+        </p>
+        <hr>
+        <h3>
+            6. Your Rights
+        </h3>
+        <ul>
+            <li>Request to know what data we collect</li>
+            <li>Ask us to delete information you have provided</li>
+            <li>Opt out of analytics cookies through your browser</li>
+        </ul>
+        <P>
+            To request changes, contact us using the information on the Contact page.
+        </P>
+        <hr>
+        <h3>
+            7. Changes to This Policy
+        </h3>
+        <P>
+            We may update this Privacy Policy from time to time.
+        </P>
+        <P>
+            The “Last Updated” date will always reflect the latest version.
+        </P>
+        <HR>
+        <h3>
+            8. Contact
+        </h3>
+        <P>
+            If you have any questions about this Privacy Policy, you can reach us through the Contact page on the
+            website.
+        </P>
+        <Style>
+            .privacy {
+                max-width: 650px;
+                margin: 0 auto;
+                text-align: left;
+                padding: 0 1rem;
+            }
+
+            .privacy p {
+                max-width: 100%;
+                text-align: left;
+            }
+
+            .privacy ul {
+                list-style-type: disc;
+                padding-left: 1.5rem;
+            }
+
+            .privacy li::marker {
+                color: white;
+            }
+
+            hr {
+                width: 100%;
+                /* هيبقى نفس عرض الـ container */
+                max-width: 650px;
+                margin: 1rem auto;
+            }
+
+            /* FOOTER */
+            footer {
+                padding: 2rem 3rem;
+                border-top: 0.5px solid var(--border);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            footer p {
+                font-size: 0.75rem;
+                color: var(--text-muted);
+            }
+        </Style>
+    </Div>
+
+    <!-- CONTACT -->
+    <div class="contact-section">
+        <h2>Get In Touch</h2>
+
+        <div class="links">
+            <a href="https://wa.me/01221438667">WhatsApp</a>
+            <a href="https://www.instagram.com/ahmed.2shehata/">Instagram</a>
+            <a href="https://www.linkedin.com/in/AhmedShehata/">Linkedin</a>
+            <a href="https://ahm3d.67892@gmail.com">Gmail</a>
+        </div>
+
+        <div class="bottom">
+            <p>© 2025. All rights reserved</p>
+            <div class="policies">
+                <a href="terms.html">Terms & Conditions</a>
+                <span>|</span>
+                <a href="privacy.html">Privacy</a>
+            </div>
+        </div>
+
+    </div>
+    </a>
+    </div>
+    </section>
+    <style>
+        span {
+            font-weight: bold;
+        }
+
+        /* CONTACT */
+        /* .all r {
+            color: #7A7570;
+            justify-content: left;
+            width: 100%;
+            text-align: left;
+        } */
+
+
+
+
+        .contact-section {
+            background-color: #0D0D0D;
+            border: solid 0.5px;
+            border-color: #B8973a;
+            border-radius: 12px;
+            padding: 60px 40px;
+            color: #B8973A;
+            max-width: 1200px;
+            margin: 40px auto;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            width: 100%;
+
+            /* ← ده اللي ناقص */
+        }
+
+        .links a {
+            color: #7A7570;
+            text-decoration: underline;
+            font-size: 18px;
+        }
+
+        .bottom {
+            display: flex;
+            justify-content: space-between;
+            /* copyright على الشمال، policies على اليمين */
+            align-items: center;
+            flex-wrap: wrap;
+            padding-top: 20px;
+            border-top: 0.5px solid var(--border);
+        }
+
+        .bottom p {
+            font-size: 14px;
+            color: var(--text-muted);
+            padding: 0;
+            text-align: left !important;
+            margin: 0 !important;
+            max-width: none !important;
+        }
+
+        .policies {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .policies a {
+            color: #7A7570;
+            text-decoration: underline;
+            font-size: 14px;
+        }
+    </style>
+
+
+
+
+
+
+</body>
+
+</html>
