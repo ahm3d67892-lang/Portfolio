@@ -47,13 +47,48 @@
       left: 0;
       right: 0;
       z-index: 100;
-      padding: 1.25rem 3rem;
+      padding: 0.75rem 15rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       background: rgba(13, 13, 13, 0.85);
       backdrop-filter: blur(12px);
       border-bottom: 0.5px solid var(--border);
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--gold);
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: rgba(13, 13, 13, 0.95);
+        padding: 1rem 2rem;
+        gap: 1rem;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+    }
+
+    function toggleMenu() {
+      document.getElementById('nav-links').classList.toggle('open');
     }
 
     .nav-logo {
@@ -63,6 +98,10 @@
       color: var(--gold);
       letter-spacing: 0.05em;
       text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 700 !important;
     }
 
     .nav-links {
@@ -352,58 +391,23 @@
     }
 
     /* CONTACT */
-    /* CONTACT */
-    .contact-section {
-      background: #000000;
-      border-radius: 60px;
-      padding: 60px 40px;
-      color: white;
-      max-width: 1200px;
-      margin: 40px auto;
-      text-align: center;
+    .all r {
+      color: #7A7570;
+      justify-content: left;
+      width: 100%;
+      text-align: left;
     }
 
-    .contact-section h2 {
-      font-size: 48px;
-      margin-bottom: 20px;
-      font-family: 'Cormorant Garamond', serif;
+
+
+
+    .contact-section {
+      background-color: #0D0D0D;
+      border: solid 0.5px;
+      border-color: #B8973a;
+      border-radius: 12px;
+      padding: 60px 40px;
       color: #B8973A;
-    }
-
-    .links {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      margin-bottom: 60px;
-    }
-
-    .links a {
-      color: #7A7570;
-      text-decoration: underline;
-      font-size: 18px;
-    }
-
-    .bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .bottom p {
-      font-size: 14px;
-    }
-
-
-
-
-    .contact-section {
-      background: #0D0D0D;
-      border: 0.5px solid;
-      border-radius: 5px;
-      border-color: #B8973A;
-      padding: 60px 40px;
-      color: #7A7570;
       max-width: 1200px;
       margin: 40px auto;
       text-align: center;
@@ -418,7 +422,10 @@
       display: flex;
       justify-content: center;
       gap: 40px;
-      margin-bottom: 60px;
+      margin-bottom: 40px;
+      width: 100%;
+
+      /* ← ده اللي ناقص */
     }
 
     .links a {
@@ -430,12 +437,18 @@
     .bottom {
       display: flex;
       justify-content: space-between;
+      /* copyright على الشمال، policies على اليمين */
       align-items: center;
       flex-wrap: wrap;
+      padding-top: 20px;
+      border-top: 0.5px solid var(--border);
     }
 
     .bottom p {
       font-size: 14px;
+      color: var(--text-muted);
+      padding: 0;
+      /* شيل الـ padding القديم */
     }
 
     .policies {
@@ -445,110 +458,55 @@
     }
 
     .policies a {
-      color: white;
-
+      color: #7A7570;
+      text-decoration: underline;
       font-size: 14px;
     }
+  </style>
 
-    /* FOOTER */
-    footer {
-      padding: 2rem 3rem;
-      border-top: 0.5px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
 
-    footer p {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
+  /* FADE IN */
+  .fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  }
 
-    /* LIGHTBOX */
-    .lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.93);
-      z-index: 999;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-    }
+  .fade-in.visible {
+  opacity: 1;
+  transform: none;
+  }
 
-    .lightbox.active {
-      display: flex;
-    }
+  /* MOBILE */
+  @media (max-width: 768px) {
+  nav {
+  padding: 1rem 1.5rem;
+  }
 
-    .lightbox img {
-      max-width: 90vw;
-      max-height: 88vh;
-      object-fit: contain;
-      border: 0.5px solid var(--border);
-    }
+  .nav-links {
+  display: none;
+  }
 
-    .lightbox-close {
-      position: absolute;
-      top: 1.5rem;
-      right: 2rem;
-      color: var(--text-muted);
-      font-size: 1.5rem;
-      cursor: pointer;
-      background: none;
-      border: none;
-      transition: color 0.3s;
-    }
+  .hero {
+  padding: 7rem 1.5rem 3rem;
+  }
 
-    .lightbox-close:hover {
-      color: var(--gold);
-    }
+  section {
+  padding: 4rem 1.5rem;
+  }
 
-    /* FADE IN */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
+  .about-grid {
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
 
-    .fade-in.visible {
-      opacity: 1;
-      transform: none;
-    }
+  justify-content: center;
+  }
 
-    /* MOBILE */
-    @media (max-width: 768px) {
-      nav {
-        padding: 1rem 1.5rem;
-      }
 
-      .nav-links {
-        display: none;
-      }
-
-      .hero {
-        padding: 7rem 1.5rem 3rem;
-      }
-
-      section {
-        padding: 4rem 1.5rem;
-      }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        margin-right: auto;
-        margin-left: auto;
-        text-align: center;
-
-        justify-content: center;
-      }
-
-      footer {
-        flex-direction: column;
-        gap: 0.5rem;
-        text-align: center;
-      }
-    }
+  }
   </style>
 </head>
 
@@ -556,49 +514,54 @@
 
   <nav>
     <a href="#" class="nav-logo">
-      <img src="cropped logo.png" alt="Ahmed Shehata" style="height: 40px; width: auto;"></a>
-    <ul class="nav-links">
-      <li><a href="#Home">Home</a></li>
+      <img src="cropped logo.png" alt="Ahmed Shehata" style="height: 40px; width: auto;">
+      Ahmed Shehata
+    </a>
+
+    <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#projects">Projects</a></li>
     </ul>
   </nav>
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-tag">WordPress Developer</div>
-  <h1>Ahmed<br><span>Shehata</span></h1>
-  <p class="hero-sub">Professional websites that drive results — built on WordPress, powered by precision.</p>
-  
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-tag">WordPress Developer</div>
+    <h1>Ahmed<br><span>Shehata</span></h1>
+    <p class="hero-sub">Professional websites that drive results — built on WordPress, powered by precision.</p>
+
     <a href="#projects" class="hero-cta">View My Work</a>
-  <a class="whatsapp" href="https://wa.me/201221438667" target="_blank" >WhatsApp</a>
-<style >
-  .whatsapp {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.85rem 2rem;
-      background: transparent;
-      color: #25D366;
-      text-decoration: none;
-      font-size: 0.8rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      border: 0.5px solid #25D366;
-      transition: all 0.3s;
-    width: fit-content;
-      margin: 2rem auto 0;
-      justify-content: center;
-      
-  }
+    <a class="whatsapp" href="https://wa.me/201221438667" target="_blank">WhatsApp</a>
+    <style>
+      .whatsapp {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.85rem 2rem;
+        background: transparent;
+        color: #25D366;
+        text-decoration: none;
+        font-size: 0.8rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        border: 0.5px solid #25D366;
+        transition: all 0.3s;
+        width: fit-content;
+        margin: 2rem auto 0;
+        justify-content: center;
 
-  .whatsapp:hover {
-    background: #25D366;
-    color: white;
-  }
-</style>
+      }
 
-<a href="https://www.instagram.com/اسمك" target="_blank" style="
+      .whatsapp:hover {
+        background: #25D366;
+        color: white;
+      }
+    </style>
+
+    <a href="https://www.instagram.com/اسمك" target="_blank" style="
 display: inline-flex;
       align-items: center;
       gap: 0.5rem;
@@ -614,16 +577,18 @@ display: inline-flex;
     width: fit-content;
       margin: 2rem auto 0;
       justify-content: center;
-" onmouseover="this.style.background='#E1306C';this.style.color='white'" onmouseout="this.style.background='transparent';this.style.color='#E1306C'">
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-  </svg>
-  Instagram
-</a>
-  
-</style>
+" onmouseover="this.style.background='#E1306C';this.style.color='white'"
+      onmouseout="this.style.background='transparent';this.style.color='#E1306C'">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path
+          d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+      </svg>
+      Instagram
+    </a>
 
-</section>
+    </style>
+
+  </section>
 
   <!-- SERVICES -->
   <section id="services">
@@ -686,25 +651,25 @@ display: inline-flex;
     <div class="links">
       <a href="https://wa.me/01221438667">WhatsApp</a>
       <a href="https://www.instagram.com/ahmed.2shehata/">Instagram</a>
-      <a href="https://www.linkedin.com/in/Ahmed Shehata/">Linkedin</a>
+      <a href="https://www.linkedin.com/in/AhmedShehata/">Linkedin</a>
       <a href="https://ahm3d.67892@gmail.com">Gmail</a>
+    </div>
 
+    <div class="bottom">
+      <p class="all r">© 2025. All rights reserved</p>
+      <div class="policies">
+        <a href="terms.html">Terms & Conditions</a>
+        <span>|</span>
+        <a href="privacy.html">Privacy</a>
+      </div>
     </div>
 
     </a>
   </div>
   </section>
 
-  <footer>
-    <p>© 2025 Ahmed Shehata. All rights reserved.</p>
-    <p style="color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:0.9rem;">WordPress Developer</p>
-  </footer>
 
-  <!-- LIGHTBOX -->
-  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-    <img id="lightbox-img" src="" alt="">
-  </div>
+
 
   <script>
     function openLightbox(src) {
