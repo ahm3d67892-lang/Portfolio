@@ -65,43 +65,16 @@
       cursor: pointer;
     }
 
-    @media (max-width: 768px) {
-      .hamburger {
-        display: block;
-      }
-
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: rgba(13, 13, 13, 0.95);
-        padding: 1rem 2rem;
-        gap: 1rem;
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-    }
-
-    function toggleMenu() {
-      document.getElementById('nav-links').classList.toggle('open');
-    }
-
     .nav-logo {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.3rem;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--gold);
       letter-spacing: 0.05em;
       text-decoration: none;
       display: flex;
       align-items: center;
       gap: 0.6rem;
-      font-weight: 700 !important;
     }
 
     .nav-links {
@@ -144,8 +117,6 @@
       height: 600px;
       background: radial-gradient(circle, rgba(184, 151, 58, 0.06) 0%, transparent 70%);
       pointer-events: none;
-      justify-content: center;
-      text-align: center;
     }
 
     .hero-tag {
@@ -157,7 +128,6 @@
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      text-align: center;
       margin-right: auto;
       margin-left: auto;
       justify-content: center;
@@ -169,7 +139,6 @@
       width: 32px;
       height: 0.5px;
       background: var(--gold);
-      text-align: center;
     }
 
     .hero h1 {
@@ -189,11 +158,9 @@
     .hero-sub {
       font-size: 1rem;
       color: var(--text-muted);
-      margin: 1.5rem 0 2.5rem;
+      margin: 1.5rem auto 2.5rem;
       max-width: 480px;
       line-height: 1.7;
-      margin-right: auto;
-      margin-left: auto;
     }
 
     .hero-cta {
@@ -209,8 +176,7 @@
       text-transform: uppercase;
       transition: all 0.3s;
       width: fit-content;
-      margin-right: auto;
-      margin-left: auto;
+      margin: 0 auto;
       justify-content: center;
     }
 
@@ -226,6 +192,52 @@
 
     .hero-cta:hover::after {
       transform: translateX(4px);
+    }
+
+    .whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      background: transparent;
+      color: #25D366;
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 0.5px solid #25D366;
+      transition: all 0.3s;
+      width: fit-content;
+      margin: 2rem auto 0;
+      justify-content: center;
+    }
+
+    .whatsapp:hover {
+      background: #25D366;
+      color: white;
+    }
+
+    .instagram-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      background: transparent;
+      color: #E1306C;
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 0.5px solid #E1306C;
+      transition: all 0.3s;
+      width: fit-content;
+      margin: 2rem auto 0;
+      justify-content: center;
+    }
+
+    .instagram-btn:hover {
+      background: #E1306C;
+      color: white;
     }
 
     /* SECTION */
@@ -254,7 +266,6 @@
     }
 
     /* ABOUT */
-
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -262,7 +273,6 @@
       align-items: center;
       justify-items: center;
       text-align: center;
-      justify-content: center;
     }
 
     .about-grid h2 {
@@ -271,8 +281,6 @@
       font-weight: 300;
       line-height: 1.2;
       margin-bottom: 1.5rem;
-      text-align: center;
-
     }
 
     .about-grid p {
@@ -280,10 +288,6 @@
       line-height: 1.8;
       font-size: 0.95rem;
       margin-bottom: 1rem;
-      margin-right: auto;
-      margin-left: auto;
-      text-align: center;
-      justify-content: center;
     }
 
     .about-img {
@@ -293,10 +297,6 @@
       object-position: top;
       filter: grayscale(20%);
       border: 0.5px solid var(--border);
-      margin-right: auto;
-      margin-left: auto;
-      text-align: center;
-      justify-content: center;
     }
 
     /* SERVICES */
@@ -391,16 +391,6 @@
     }
 
     /* CONTACT */
-    .all r {
-      color: #7A7570;
-      justify-content: left;
-      width: 100%;
-      text-align: left;
-    }
-
-
-
-
     .contact-section {
       background-color: #0D0D0D;
       border: solid 0.5px;
@@ -416,6 +406,7 @@
     .contact-section h2 {
       font-size: 48px;
       margin-bottom: 20px;
+      font-family: 'Cormorant Garamond', serif;
     }
 
     .links {
@@ -424,8 +415,6 @@
       gap: 40px;
       margin-bottom: 40px;
       width: 100%;
-
-      /* ← ده اللي ناقص */
     }
 
     .links a {
@@ -437,7 +426,6 @@
     .bottom {
       display: flex;
       justify-content: space-between;
-      /* copyright على الشمال، policies على اليمين */
       align-items: center;
       flex-wrap: wrap;
       padding-top: 20px;
@@ -448,7 +436,9 @@
       font-size: 14px;
       color: var(--text-muted);
       padding: 0;
-      /* شيل الـ padding القديم */
+      margin: 0 !important;
+      text-align: left !important;
+      max-width: none !important;
     }
 
     .policies {
@@ -462,51 +452,58 @@
       text-decoration: underline;
       font-size: 14px;
     }
-  </style>
 
+    /* FADE IN */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
 
-  /* FADE IN */
-  .fade-in {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-  }
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
 
-  .fade-in.visible {
-  opacity: 1;
-  transform: none;
-  }
+    /* MOBILE */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem 1.5rem;
+      }
 
-  /* MOBILE */
-  @media (max-width: 768px) {
-  nav {
-  padding: 1rem 1.5rem;
-  }
+      .hamburger {
+        display: block;
+      }
 
-  .nav-links {
-  display: none;
-  }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: rgba(13, 13, 13, 0.95);
+        padding: 1rem 2rem;
+        gap: 1rem;
+      }
 
-  .hero {
-  padding: 7rem 1.5rem 3rem;
-  }
+      .nav-links.open {
+        display: flex;
+      }
 
-  section {
-  padding: 4rem 1.5rem;
-  }
+      .hero {
+        padding: 7rem 1.5rem 3rem;
+      }
 
-  .about-grid {
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  margin-right: auto;
-  margin-left: auto;
-  text-align: center;
+      section {
+        padding: 4rem 1.5rem;
+      }
 
-  justify-content: center;
-  }
-
-
-  }
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
   </style>
 </head>
 
@@ -527,67 +524,20 @@
       <li><a href="#projects">Projects</a></li>
     </ul>
   </nav>
+
   <!-- HERO -->
   <section class="hero" id="home">
     <div class="hero-tag">WordPress Developer</div>
     <h1>Ahmed<br><span>Shehata</span></h1>
     <p class="hero-sub">Professional websites that drive results — built on WordPress, powered by precision.</p>
-
     <a href="#projects" class="hero-cta">View My Work</a>
     <a class="whatsapp" href="https://wa.me/201221438667" target="_blank">WhatsApp</a>
-    <style>
-      .whatsapp {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.85rem 2rem;
-        background: transparent;
-        color: #25D366;
-        text-decoration: none;
-        font-size: 0.8rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        border: 0.5px solid #25D366;
-        transition: all 0.3s;
-        width: fit-content;
-        margin: 2rem auto 0;
-        justify-content: center;
-
-      }
-
-      .whatsapp:hover {
-        background: #25D366;
-        color: white;
-      }
-    </style>
-
-    <a href="https://www.instagram.com/اسمك" target="_blank" style="
-display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.85rem 2rem;
-      background: transparent;
-      color:#E1306C;
-      text-decoration: none;
-      font-size: 0.8rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      border: 0.5px solid #E1306C;
-      transition: all 0.3s;
-    width: fit-content;
-      margin: 2rem auto 0;
-      justify-content: center;
-" onmouseover="this.style.background='#E1306C';this.style.color='white'"
-      onmouseout="this.style.background='transparent';this.style.color='#E1306C'">
+    <a class="instagram-btn" href="https://www.instagram.com/ahmed.2shehata/" target="_blank">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-        <path
-          d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
       </svg>
       Instagram
     </a>
-
-    </style>
-
   </section>
 
   <!-- SERVICES -->
@@ -597,26 +547,22 @@ display: inline-flex;
       <div class="service-card">
         <div class="service-num">01</div>
         <h3>Professional Web Development</h3>
-        <p>Custom WordPress websites built from scratch — clean code, fast loading, and designed to impress clients and
-          customers.</p>
+        <p>Custom WordPress websites built from scratch — clean code, fast loading, and designed to impress clients and customers.</p>
       </div>
       <div class="service-card">
         <div class="service-num">02</div>
         <h3>WooCommerce Stores</h3>
-        <p>Full e-commerce solutions with product management, payment integration, and optimized checkout experiences.
-        </p>
+        <p>Full e-commerce solutions with product management, payment integration, and optimized checkout experiences.</p>
       </div>
       <div class="service-card">
         <div class="service-num">03</div>
         <h3>WordPress Optimization</h3>
-        <p>Speed optimization, SEO setup, security hardening, and plugin management to keep your site performing at its
-          best.</p>
+        <p>Speed optimization, SEO setup, security hardening, and plugin management to keep your site performing at its best.</p>
       </div>
       <div class="service-card">
         <div class="service-num">04</div>
         <h3>Site Redesign & Migration</h3>
-        <p>Transform outdated websites into modern, high-converting experiences — including migrations from Squarespace
-          and Wix.</p>
+        <p>Transform outdated websites into modern, high-converting experiences — including migrations from Squarespace and Wix.</p>
       </div>
     </div>
   </section>
@@ -629,53 +575,48 @@ display: inline-flex;
         <img src="Vogue5.jpg" alt="Vogue Store" class="project-img">
         <div class="project-info">
           <h3>Vogue Store</h3>
-          <p>WordPress · Elementor </p>
+          <p>WordPress · Elementor</p>
         </div>
       </div>
       <div class="project-card" onclick="openLightbox('Smile Care Dental Hospital.png')">
-        <img src="Smile Care Dental Hospital.png" alt="Smile Care Dental Hospital.png" class="project-img">
+        <img src="Smile Care Dental Hospital.png" alt="Smile Care Dental Hospital" class="project-img">
         <div class="project-info">
-          <h3>Smile Care Dental Hospital.png</h3>
-          <p> Native Code bulit with HTML , CSS & JS</p>
+          <h3>Smile Care Dental Hospital</h3>
+          <p>Native Code built with HTML, CSS & JS</p>
         </div>
       </div>
-    </div>
-    </div>
     </div>
   </section>
 
   <!-- CONTACT -->
   <div class="contact-section">
     <h2>Get In Touch</h2>
-
     <div class="links">
-      <a href="https://wa.me/01221438667">WhatsApp</a>
+      <a href="https://wa.me/201221438667">WhatsApp</a>
       <a href="https://www.instagram.com/ahmed.2shehata/">Instagram</a>
       <a href="https://www.linkedin.com/in/AhmedShehata/">Linkedin</a>
-      <a href="https://ahm3d.67892@gmail.com">Gmail</a>
+      <a href="mailto:ahm3d.67892@gmail.com">Gmail</a>
     </div>
-
     <div class="bottom">
-      <p class="all r">© 2025. All rights reserved</p>
+      <p>© 2025. All rights reserved</p>
       <div class="policies">
         <a href="terms.html">Terms & Conditions</a>
         <span>|</span>
         <a href="privacy.html">Privacy</a>
       </div>
     </div>
-
-    </a>
   </div>
-  </section>
-
-
-
 
   <script>
+    function toggleMenu() {
+      document.getElementById('nav-links').classList.toggle('open');
+    }
+
     function openLightbox(src) {
       document.getElementById('lightbox-img').src = src;
       document.getElementById('lightbox').classList.add('active');
     }
+
     function closeLightbox() {
       document.getElementById('lightbox').classList.remove('active');
     }
@@ -685,6 +626,6 @@ display: inline-flex;
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   </script>
-</body>
 
+</body>
 </html>
