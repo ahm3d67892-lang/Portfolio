@@ -16,6 +16,38 @@
       padding: 0;
       box-sizing: border-box;
     }
+    /* الدائرة */
+.cursor-preview {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 120px;
+  height: 120px;
+  background: rgba(184, 151, 58, 0.9);
+  color: #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  z-index: 9999;
+  backdrop-filter: blur(6px);
+}
+
+/* النص */
+.cursor-preview span {
+  font-weight: 500;
+}
+
+/* لما يظهر */
+.cursor-preview.active {
+  transform: translate(-50%, -50%) scale(1);
+}
 
     :root {
       --gold: #b8973a;
@@ -342,41 +374,47 @@
     }
 
     /* PROJECTS */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-    }
+ /* GRID */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
 
-    .project-card {
-      border: 0.5px solid var(--border);
-      overflow: hidden;
-      transition: border-color 0.3s;
-      cursor: pointer;
-    }
+/* CARD */
+.project-card {
+  border: 0.5px solid var(--border);
+  background: var(--dark-2);
+  overflow: hidden;
+  transition: 0.3s;
+}
 
-    .project-card:hover {
-      border-color: var(--gold);
-    }
+/* IMAGE */
+.project-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
 
-    .project-img {
-      width: 100%;
-      aspect-ratio: 16/10;
-      object-fit: cover;
-      object-position: top;
-      display: block;
-      transition: transform 0.5s;
-      filter: grayscale(10%);
-    }
+/* INFO */
+.project-info {
+  padding: 1.25rem 1.5rem;
+}
 
-    .project-card:hover .project-img {
-      transform: scale(1.03);
-    }
+/* HOVER */
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+}
 
-    .project-info {
-      padding: 1.25rem 1.5rem;
-      background: var(--dark-2);
-    }
+/* LINK RESET */
+.project-card a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
 
     .project-info h3 {
       font-family: 'Cormorant Garamond', serif;
@@ -534,7 +572,8 @@
     <a class="whatsapp" href="https://wa.me/201221438667" target="_blank">WhatsApp</a>
     <a class="instagram-btn" href="https://www.instagram.com/ahmed.2shehata/" target="_blank">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        <path
+          d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
       </svg>
       Instagram
     </a>
@@ -547,45 +586,60 @@
       <div class="service-card">
         <div class="service-num">01</div>
         <h3>Professional Web Development</h3>
-        <p>Custom WordPress websites built from scratch — clean code, fast loading, and designed to impress clients and customers.</p>
+        <p>Custom WordPress websites built from scratch — clean code, fast loading, and designed to impress clients and
+          customers.</p>
       </div>
       <div class="service-card">
         <div class="service-num">02</div>
         <h3>WooCommerce Stores</h3>
-        <p>Full e-commerce solutions with product management, payment integration, and optimized checkout experiences.</p>
+        <p>Full e-commerce solutions with product management, payment integration, and optimized checkout experiences.
+        </p>
       </div>
       <div class="service-card">
         <div class="service-num">03</div>
         <h3>WordPress Optimization</h3>
-        <p>Speed optimization, SEO setup, security hardening, and plugin management to keep your site performing at its best.</p>
+        <p>Speed optimization, SEO setup, security hardening, and plugin management to keep your site performing at its
+          best.</p>
       </div>
       <div class="service-card">
         <div class="service-num">04</div>
         <h3>Site Redesign & Migration</h3>
-        <p>Transform outdated websites into modern, high-converting experiences — including migrations from Squarespace and Wix.</p>
+        <p>Transform outdated websites into modern, high-converting experiences — including migrations from Squarespace
+          and Wix.</p>
       </div>
     </div>
   </section>
 
   <!-- PROJECTS -->
   <section id="projects">
-    <div class="section-label">Projects</div>
-    <div class="projects-grid fade-in">
-      <div class="project-card" onclick="openLightbox('Vogue5.jpg')">
-        <img src="Vogue5.jpg" alt="Vogue Store" class="project-img">
-        <div class="project-info">
-          <h3>Vogue Store</h3>
-          <p>WordPress · Elementor</p>
-        </div>
-      </div>
-      <div class="project-card" onclick="openLightbox('Smile Care Dental Hospital.png')">
-        <img src="Smile Care Dental Hospital.png" alt="Smile Care Dental Hospital" class="project-img">
-        <div class="project-info">
-          <h3>Smile Care Dental Hospital</h3>
-          <p>Native Code built with HTML, CSS & JS</p>
-        </div>
+  <div class="section-label">Projects</div>
+
+  <div class="projects-grid">
+
+    <!-- PROJECT 1 -->
+    <div class="project-card">
+      <a href="https://ahm3d67892-lang.github.io/Noir-Brew/" target="_blank">
+        <img src="brew.png" alt="brew" class="project-img">
+      </a>
+      <div class="project-info">
+        <h3>Noir & Brew</h3>
+        <p>Coffee Shop</p>
       </div>
     </div>
+
+    <!-- PROJECT 2 -->
+    <div class="project-card">
+      <a href="https://ahm3d67892-lang.github.io/Khalid-Al-Rashidi-Store/" target="_blank">
+        <img src="Khalid-Al-Rashidi.png" alt="Khalid-Al-Rashidi" class="project-img">
+      </a>
+      <div class="project-info">
+        <h3>Khalid-Al-Rashidi-Store</h3>
+        <p>E-commerce Store</p>
+      </div>
+    </div>
+
+  </div>
+</section>
   </section>
 
   <!-- CONTACT -->
@@ -626,6 +680,28 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   </script>
+<div class="cursor-preview" id="cursorPreview">
+  <span>Live Preview</span>
+</div>
+<script>
+  const cursor = document.getElementById("cursorPreview");
+  const cards = document.querySelectorAll(".project-card");
 
+  cards.forEach(card => {
+    card.addEventListener("mouseenter", () => {
+      cursor.classList.add("active");
+    });
+
+    card.addEventListener("mouseleave", () => {
+      cursor.classList.remove("active");
+    });
+
+    card.addEventListener("mousemove", (e) => {
+      cursor.style.top = e.clientY + "px";
+      cursor.style.left = e.clientX + "px";
+    });
+  });
+</script>
 </body>
+
 </html>
