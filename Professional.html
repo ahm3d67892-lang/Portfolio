@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Professional Website Development</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --gold: #b8973a;
+            --gold-light: #d4b05a;
+            --dark: #0d0d0d;
+            --dark-2: #141414;
+            --dark-3: #1c1c1c;
+            --text: #e8e4dc;
+            --text-muted: #7a7570;
+            --border: rgba(184, 151, 58, 0.2);
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #0D0D0D;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 0.75rem 15rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(13, 13, 13, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 0.5px solid var(--border);
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--gold);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+
+        /* ── HERO ── */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            padding: 120px 60px 90px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            line-height: 1.2;
+            color: var(--text);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 500px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* ── SECTION WRAPPER ── */
+        .section {
+            max-width: 1200px;
+            margin: 0 auto 20px;
+            padding: 0 40px;
+            margin-bottom: 40px;
+        }
+
+        /* ── SERVICES CARD ── */
+        .services-card {
+            background: #1A1A1A;
+            border-radius: 20px;
+            border: 0.5 solid;
+            padding: 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .services-left h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .services-left p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .services-left ul {
+            list-style: none;
+            margin-top: 8px;
+        }
+
+        .services-left ul li {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            padding: 3px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .services-left ul li::before {
+            content: "✦";
+            color: #B8973A;
+            font-size: 0.65rem;
+            flex-shrink: 0;
+        }
+
+        .services-right {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .service-item {
+            background: #222222;
+            border-radius: 12px;
+            padding: 20px 16px;
+            border-left: 2px solid #B8973A;
+        }
+
+        .service-item h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            /* color: #B8973A; */
+        }
+
+        .service-item p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+        }
+
+        /* ── TYPES CARD ── */
+        .types-card {
+            background: #1A1A1A;
+            border-radius: 20px;
+            padding: 64px 64px 56px;
+            text-align: center;
+        }
+
+        .types-card .label {
+            font-size: 0.75rem;
+            /* color: #B8973A; */
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .types-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 32px;
+            color: var(--text);
+        }
+
+        .types-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            text-align: left;
+        }
+
+        .type-item {
+            background: #222222;
+            border-radius: 14px;
+            padding: 22px;
+            border-top: 2px solid #B8973A;
+        }
+
+        .type-item h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            /* color: #B8973A; */
+        }
+
+        .type-item p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* ── FAQ ── */
+        .faq-section {
+            padding: 0 40px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-top: 60px;
+        }
+
+        .faq-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.6rem;
+            padding: 20px 40px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        .faq-item {
+            background: #1A1A1A;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            transition: background 0.3s ease;
+        }
+
+        .faq-item.is-open {
+            background: #1A1A1A;
+            border-left: 2px solid #B8973A;
+        }
+
+        .faq-trigger {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 18px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            color: var(--text);
+            user-select: none;
+            width: 100%;
+            background: none;
+            border: none;
+            text-align: left;
+            font-family: inherit;
+        }
+
+        .faq-icon {
+            font-size: 1.3rem;
+            /* color: #B8973A; */
+            flex-shrink: 0;
+            transition: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            line-height: 1;
+        }
+
+        .faq-item.is-open .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-body-wrap {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .faq-item.is-open .faq-body-wrap {
+            grid-template-rows: 1fr;
+        }
+
+        .faq-body-inner {
+            overflow: hidden;
+        }
+
+        .faq-body {
+            padding: 0 24px 20px;
+            font-size: 1rem;
+            color: #A09880;
+            line-height: 1.8;
+            opacity: 0;
+            transform: translateY(-6px);
+            transition: opacity 0.3s ease 0.05s, transform 0.3s ease 0.05s;
+        }
+
+        .faq-item.is-open .faq-body {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 700px) {
+
+            .hero,
+            .services-card {
+                grid-template-columns: 1fr;
+            }
+
+            .types-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero,
+            .section,
+            .faq-section {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .services-card {
+                padding: 20px;
+            }
+        }
+
+        /* CONTACT */
+        .contact-section {
+            background-color: #0D0D0D;
+            border: solid 0.5px;
+            border-color: #B8973a;
+            border-radius: 12px;
+            padding: 60px 40px;
+            color: #B8973A;
+            max-width: 1200px;
+            margin: 40px auto;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            width: 100%;
+        }
+
+        .links a {
+            color: #7A7570;
+            text-decoration: underline;
+            font-size: 18px;
+        }
+
+        .bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding-top: 20px;
+            border-top: 0.5px solid var(--border);
+        }
+
+        .bottom p {
+            font-size: 14px;
+            color: var(--text-muted);
+            padding: 0;
+            margin: 0 !important;
+            text-align: left !important;
+            max-width: none !important;
+        }
+
+        .policies {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .policies a {
+            color: #7A7570;
+            text-decoration: underline;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="#" class="nav-logo">
+            <img src="cropped logo.png" alt="Ahmed Shehata" style="height: 40px; width: auto;">
+            Ahmed Shehata
+        </a>
+
+        <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="Professional.html">Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- HERO -->
+    <div class="hero">
+        <h1>Professional Website Development</h1>
+        <p>Build fast, modern, and reliable websites designed for real business needs — with clean UI, smooth UX, and
+            high-performance standards.</p>
+    </div>
+
+    <!-- SERVICES -->
+    <div class="section">
+        <div class="services-card">
+            <div class="services-left">
+                <h2>Web Development Services</h2>
+                <p>I build WordPress websites that focus on clarity, speed, and user experience.</p>
+                <p>Every project is designed to help your business communicate clearly, convert better, and grow with a
+                    stable, high-performing website.</p>
+                <ul>
+                    <li>Monthly Website Maintenance Services</li>
+                    <li>SEO-friendly structure</li>
+                    <li>High performance + caching setup</li>
+                    <li>Clean, modern UI</li>
+                    <li>Fully responsive layouts</li>
+                </ul>
+            </div>
+            <div class="services-right">
+                <div class="service-item">
+                    <h4>Speed Optimization</h4>
+                    <p>Optimize speed, caching, and Core Web Vitals to ensure fast loading and a smooth user experience.
+                    </p>
+                </div>
+                <div class="service-item">
+                    <h4>Custom Development &amp; Integrations</h4>
+                    <p>Build custom features, dynamic structures, and integrations using APIs, ACF, and tailored
+                        functionality for your business needs.</p>
+                </div>
+                <div class="service-item">
+                    <h4>UX/UI Design &amp; Website Structure</h4>
+                    <p>Create clean, modern layouts with a user-first structure that improves navigation, engagement,
+                        and conversion.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TYPES -->
+    <div class="section">
+        <div class="types-card">
+            <p class="label">Types of Websites I Offer</p>
+            <h2>Teach, Sell, and Grow</h2>
+            <div class="types-grid">
+                <div class="type-item">
+                    <h4>Educational Websites</h4>
+                    <p>Build learning platforms for online courses, student enrollment, and progress tracking with a
+                        smooth user experience.</p>
+                </div>
+                <div class="type-item">
+                    <h4>E-commerce Websites</h4>
+                    <p>Fully-functional WordPress stores with payment gateways, inventory management, and reliable
+                        checkout experiences.</p>
+                </div>
+                <div class="type-item">
+                    <h4>Static/Business Websites</h4>
+                    <p>Simple, clean, and professional websites focused on presenting your business clearly and building
+                        trust with visitors.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq-section">
+        <h2>FAQs</h2>
+
+        <div class="faq-item is-open">
+            <button class="faq-trigger">How much does a WordPress website cost? <span class="faq-icon">+</span></button>
+            <div class="faq-body-wrap">
+                <div class="faq-body-inner">
+                    <div class="faq-body">It depends on the website type, features, and the amount of customization
+                        needed. Most business websites fall within a clear range once we define your structure and
+                        requirements.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-trigger">How long does it take to build a website? <span
+                    class="faq-icon">+</span></button>
+            <div class="faq-body-wrap">
+                <div class="faq-body-inner">
+                    <div class="faq-body">A standard business website usually takes 1–3 weeks depending on the content,
+                        design, and any custom functionalities you need.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-trigger">Do you provide website maintenance? <span class="faq-icon">+</span></button>
+            <div class="faq-body-wrap">
+                <div class="faq-body-inner">
+                    <div class="faq-body">Yes. I offer monthly maintenance that covers updates, backups, security
+                        checks, and small ongoing edits to keep your website running smoothly.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-trigger">Will my website be optimized for SEO? <span class="faq-icon">+</span></button>
+            <div class="faq-body-wrap">
+                <div class="faq-body-inner">
+                    <div class="faq-body">Yes. Every website includes basic on-page SEO such as clean structure, proper
+                        headers, meta tags, optimized images, and schema — so Google can read the site properly from day
+                        one.
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-trigger">Can I update the website myself? <span class="faq-icon">+</span></button>
+            <div class="faq-body-wrap">
+                <div class="faq-body-inner">
+                    <div class="faq-body">If you prefer, I can set up an easy-to-use dashboard so you can edit text,
+                        images, or pages without needing technical experience.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-trigger">Can you integrate payment gateways or custom features? <span
+                    class="faq-icon">+</span></button>
+            <div class="faq-body-wrap">
+                <div class="faq-body-inner">
+                    <div class="faq-body">Yes. I can add payment methods, booking systems, CRM integrations, or any
+                        custom functionality your business needs.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-trigger">Do you build e-commerce websites? <span class="faq-icon">+</span></button>
+            <div class="faq-body-wrap">
+                <div class="faq-body-inner">
+                    <div class="faq-body">
+                        Yes. I develop fully functional WooCommerce stores including checkout, shipping, inventory, and
+                        tracking integrations.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-trigger">Is the website mobile friendly? <span class="faq-icon">+</span></button>
+            <div class="faq-body-wrap">
+                <div class="faq-body-inner">
+                    <div class="faq-body">Every website is fully responsive and tested on different devices to ensure a
+                        smooth user experience everywhere.</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- CONTACT -->
+    <div class="contact-section">
+        <h2>Get In Touch</h2>
+        <div class="links">
+            <a href="https://wa.me/201221438667">WhatsApp</a>
+            <a href="https://www.instagram.com/ahmed.2shehata/">Instagram</a>
+            <a href="mailto:ahm3d.67892@gmail.com">Gmail</a>
+        </div>
+        <div class="bottom">
+            <p>© 2025. All rights reserved</p>
+            <div class="policies">
+                <a href="terms.html">Terms & Conditions</a>
+                <span>|</span>
+                <a href="privacy.html">Privacy</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.faq-trigger').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.closest('.faq-item');
+                const isOpen = item.classList.contains('is-open');
+                // Close all
+                document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('is-open'));
+                // Open clicked if it was closed
+                if (!isOpen) item.classList.add('is-open');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
