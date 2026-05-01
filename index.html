@@ -284,12 +284,15 @@
       text-transform: uppercase;
       color: var(--gold);
       margin-bottom: 3rem;
-      
-      align-items: center;
+      /* display: flex; */
+      text-align: center;
+      align-items:center;
       gap: 0.75rem;
     }
 
     .section-label::before {
+      /* content:""; */
+      text-align: center;
       display: inline-block;
       width: 32px;
       height: 0.5px;
@@ -334,6 +337,7 @@
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      text-align: center;
       gap: 1px;
       background: var(--border);
       border: 0.5px solid var(--border);
@@ -557,7 +561,7 @@
     <ul class="nav-links" id="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="#services">Services</a></li>
+      <li><a href="Professional.html">Services</a></li>
       <li><a href="#projects">Projects</a></li>
     </ul>
   </nav>
